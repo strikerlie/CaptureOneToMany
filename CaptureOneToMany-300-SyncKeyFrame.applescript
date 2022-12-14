@@ -66,11 +66,15 @@ on CopyLayerAdjustment(source, target)
 			set (brightness of adjustments of targetLayers) to get brightness of adjustments of sourceLayers
 		end try
 		try
-			--set (clarity amount of adjustments of targetLayers) to get clarity amount of adjustments of sourceLayers
+			set (clarity amount of adjustments of targetLayers) to get clarity amount of adjustments of sourceLayers
+		end try
+		try
 			set (clarity method of adjustments of targetLayers) to get clarity method of adjustments of sourceLayers
 		end try
 		try
-			--set (clarity structure of adjustments of targetLayers) to get clarity structure of adjustments of sourceLayers
+			set (clarity structure of adjustments of targetLayers) to get clarity structure of adjustments of sourceLayers
+		end try
+		try
 			set (color balance highlight hue of adjustments of targetLayers) to get color balance highlight hue of adjustments of sourceLayers
 		end try
 		try
@@ -105,13 +109,15 @@ on CopyLayerAdjustment(source, target)
 		end try
 		try
 			set (color editor settings of adjustments of targetLayers) to get color editor settings of adjustments of sourceLayers
-			--	set (color profile of adjustments of targetLayers) to get color profile of adjustments of sourceLayers
 		end try
+		--	set (color profile of adjustments of targetLayers) to get color profile of adjustments of sourceLayers
 		try
 			set (contrast of adjustments of targetLayers) to get contrast of adjustments of sourceLayers
 		end try
 		try
-			--set (dehaze amount of adjustments of targetLayers) to get dehaze amount of adjustments of sourceLayers
+			set (dehaze amount of adjustments of targetLayers) to get dehaze amount of adjustments of sourceLayers
+		end try
+		try
 			set (dehaze color of adjustments of targetLayers) to get dehaze color of adjustments of sourceLayers
 		end try
 		try
@@ -188,13 +194,22 @@ on CopyLayerAdjustment(source, target)
 			set (level target shadow rgb of adjustments of targetLayers) to get level target shadow rgb of adjustments of sourceLayers
 		end try
 		try
+			set (moire amount of adjustments of targetLayers) to get moire amount of adjustments of sourceLayers
+		end try
+		try
+			set (moire pattern of adjustments of targetLayers) to get moire pattern of adjustments of sourceLayers
+		end try
+		--set (noise reduction color of adjustments of targetLayers) to get noise reduction color of adjustments of sourceLayers
+		try
+			set (noise reduction details of adjustments of targetLayers) to get noise reduction details of adjustments of sourceLayers
+		end try
+		try
+			set (noise reduction luminance of adjustments of targetLayers) to get noise reduction luminance of adjustments of sourceLayers
+		end try
+		--set (noise reduction single pixel of adjustments of targetLayers) to get noise reduction single pixel of adjustments of sourceLayers
+		
+		try
 			set (luma curve of adjustments of targetLayers) to get luma curve of adjustments of sourceLayers
-			--set (moire amount of adjustments of targetLayers) to get moire amount of adjustments of sourceLayers
-			--set (moire pattern of adjustments of targetLayers) to get moire pattern of adjustments of sourceLayers
-			--set (noise reduction color of adjustments of targetLayers) to get noise reduction color of adjustments of sourceLayers
-			--set (noise reduction details of adjustments of targetLayers) to get noise reduction details of adjustments of sourceLayers
-			--set (noise reduction luminance of adjustments of targetLayers) to get noise reduction luminance of adjustments of sourceLayers
-			--set (noise reduction single pixel of adjustments of targetLayers) to get noise reduction single pixel of adjustments of sourceLayers
 			--set (orientation of adjustments of targetLayers) to get orientation of adjustments of sourceLayers
 		end try
 		try
@@ -209,7 +224,9 @@ on CopyLayerAdjustment(source, target)
 		end try
 		try
 			set (shadow recovery of adjustments of targetLayers) to get shadow recovery of adjustments of sourceLayers
-			--set (sharpening amount of adjustments of targetLayers) to get sharpening amount of adjustments of sourceLayers
+		end try
+		try
+			set (sharpening amount of adjustments of targetLayers) to get sharpening amount of adjustments of sourceLayers
 		end try
 		try
 			set (sharpening halo suppression of adjustments of targetLayers) to get sharpening halo suppression of adjustments of sourceLayers

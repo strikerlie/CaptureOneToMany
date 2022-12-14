@@ -149,13 +149,13 @@ Not Support:
 | Adjustment  | Ramping | Copy | Not Support |
 | ------------- | ------------- | ------------- | ------------- |
 | Method | | Support | |
-| Clarity  |   |  | No, Not editable in Layer(API Fail??)|
-| Structure  |   |  | No, Not editable in Layer(API Fail??) |
+| Clarity  | Support  |  |  |
+| Structure  | Support  |  |  |
 
 ### Dehaze
 | Adjustment  | Ramping | Copy | Not Support |
 | ------------- | ------------- | ------------- | ------------- |
-| Amount | |  | No, Not editable in Layer(API Fail??) |
+| Amount | Support |  |  |
 | Shadow Tone  |  | Support | |
 
 
@@ -186,7 +186,7 @@ Not Support:
 ### Sharpening
 | Adjustment  | Ramping | Copy | Not Support |
 | ------------- | ------------- | ------------- | ------------- |
-| Amount |  | |No, Not editable in Layer(API Fail??) |
+| Amount | Support | | |
 | Radius | Support | | |
 | Threshold | Support | | |
 | Halo Suppression | Support | | |
@@ -195,8 +195,8 @@ Not Support:
 ### Noise Reduction
 | Adjustment  | Ramping | Copy | Not Support |
 | ------------- | ------------- | ------------- | ------------- |
-| Luminance | |  | No, Not editable in Layer(API Fail??) |
-| Details | |  | No, Not editable in Layer(API Fail??) |
+| Luminance | Support | | |
+| Details | Support | | |
 | Color | |  | No, Not editable in Layer |
 | Single Pixel | |  | No, Not editable in Layer |
 
@@ -220,8 +220,8 @@ Not Support:
 ### Moire
 | Adjustment  | Ramping | Copy | Not Support |
 | ------------- | ------------- | ------------- | ------------- |
-| Amount | |  | No, Not editable in Layer(API Fail??) |
-| Pattern | |  | No, Not editable in Layer(API Fail??) |
+| Amount | Support | | |
+| Pattern| Support | | |
 
 ### Color Editor
 | Adjustment  | Ramping | Copy | Not Support |

@@ -86,9 +86,9 @@ on RampingLayerAdjustment(startIndex, endIndex)
 			set (black recovery of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get black recovery of adjustments of startLayer, get black recovery of adjustments of endLayer)
 			set (blue curve of adjustments of targetLayers) to get blue curve of adjustments of startLayer
 			set (brightness of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get brightness of adjustments of startLayer, get brightness of adjustments of endLayer)
-			--set (clarity amount of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i,get clarity amount of adjustments of startLayer,get clarity amount of adjustments of endLayer)
+			set (clarity amount of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get clarity amount of adjustments of startLayer, get clarity amount of adjustments of endLayer)
 			set (clarity method of adjustments of targetLayers) to get clarity method of adjustments of startLayer
-			--set (clarity structure of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i,get clarity structure of adjustments of startLayer,get clarity structure of adjustments of endLayer)
+			set (clarity structure of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get clarity structure of adjustments of startLayer, get clarity structure of adjustments of endLayer)
 			set (color balance highlight hue of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get color balance highlight hue of adjustments of startLayer, get color balance highlight hue of adjustments of endLayer)
 			set (color balance highlight lightness of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get color balance highlight lightness of adjustments of startLayer, get color balance highlight lightness of adjustments of endLayer)
 			set (color balance highlight saturation of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get color balance highlight saturation of adjustments of startLayer, get color balance highlight saturation of adjustments of endLayer)
@@ -103,7 +103,7 @@ on RampingLayerAdjustment(startIndex, endIndex)
 			set (color editor settings of adjustments of targetLayers) to get color editor settings of adjustments of startLayer
 			--	set (color profile of adjustments of targetLayers) to get color profile of adjustments of startLayer
 			set (contrast of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get contrast of adjustments of startLayer, get contrast of adjustments of endLayer)
-			--set (dehaze amount of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i,get dehaze amount of adjustments of startLayer,get dehaze amount of adjustments of endLayer)
+			set (dehaze amount of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get dehaze amount of adjustments of startLayer, get dehaze amount of adjustments of endLayer)
 			set (dehaze color of adjustments of targetLayers) to get dehaze color of adjustments of startLayer
 			set (exposure of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get exposure of adjustments of startLayer, get exposure of adjustments of endLayer)
 			--set (film curve of adjustments of targetLayers) to get film curve of adjustments of sourceLayers
@@ -133,11 +133,11 @@ on RampingLayerAdjustment(startIndex, endIndex)
 			set (level target shadow red of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get level target shadow red of adjustments of startLayer, get level target shadow red of adjustments of endLayer)
 			set (level target shadow rgb of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get level target shadow rgb of adjustments of startLayer, get level target shadow rgb of adjustments of endLayer)
 			set (luma curve of adjustments of targetLayers) to get luma curve of adjustments of startLayer
-			--set (moire amount of adjustments of targetLayers) to get moire amount of adjustments of sourceLayers
-			--set (moire pattern of adjustments of targetLayers) to get moire pattern of adjustments of sourceLayers
+			set (moire amount of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get moire amount of adjustments of startLayer, get moire amount of adjustments of endLayer)
+			set (moire pattern of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get moire pattern of adjustments of startLayer, get moire pattern of adjustments of endLayer)
 			--set (noise reduction color of adjustments of targetLayers) to get noise reduction color of adjustments of sourceLayers
-			--set (noise reduction details of adjustments of targetLayers) to get noise reduction details of adjustments of sourceLayers
-			--set (noise reduction luminance of adjustments of targetLayers) to get noise reduction luminance of adjustments of sourceLayers
+			set (noise reduction details of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get noise reduction details of adjustments of startLayer, get noise reduction details of adjustments of endLayer)
+			set (noise reduction luminance of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get noise reduction luminance of adjustments of startLayer, get noise reduction luminance of adjustments of endLayer)
 			--set (noise reduction single pixel of adjustments of targetLayers) to get noise reduction single pixel of adjustments of sourceLayers
 			--set (orientation of adjustments of targetLayers) to get orientation of adjustments of sourceLayers
 			set (red curve of adjustments of targetLayers) to get red curve of adjustments of startLayer
@@ -145,7 +145,7 @@ on RampingLayerAdjustment(startIndex, endIndex)
 			--set (rotation of adjustments of targetLayers) to get rotation of adjustments of startLayer
 			set (saturation of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get saturation of adjustments of startLayer, get saturation of adjustments of endLayer)
 			set (shadow recovery of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get shadow recovery of adjustments of startLayer, get shadow recovery of adjustments of endLayer)
-			--set (sharpening amount of adjustments of targetLayers) to get sharpening amount of adjustments of startLayer
+			set (sharpening amount of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get sharpening amount of adjustments of startLayer, get sharpening amount of adjustments of endLayer)
 			set (sharpening halo suppression of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get sharpening halo suppression of adjustments of startLayer, get sharpening halo suppression of adjustments of endLayer)
 			set (sharpening radius of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get sharpening radius of adjustments of startLayer, get sharpening radius of adjustments of endLayer)
 			set (sharpening threshold of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get sharpening threshold of adjustments of startLayer, get sharpening threshold of adjustments of endLayer)
