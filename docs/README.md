@@ -324,6 +324,15 @@ Not Support:
 
 ## TODO
 ---
+Hopefully Deflicker
+Performance Tuning
+
+## Sample output
+---
+
+No Deflicker applied
+
+https://www.youtube.com/watch?v=4pRYa8XXAY8&list=PLm7v1afnWYa1bYEz3khi_E2JbU2dT6EiR
 
 ## Special Thanks and Reference
 ---
