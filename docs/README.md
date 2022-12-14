@@ -287,9 +287,11 @@ Not Support:
     Example
     #### H264
     ```
+    ffmpeg -framerate 24 -pattern_type glob -i "*.jpg" -c:v libx264 -crf 17  output.mov
     ```
     #### H265 a.k.a. HEVC
     ```
+    ffmpeg -framerate 24 -pattern_type glob -i "*.jpg" -c:v libx265 -crf 17  output.mov
     ```
     ##### 24FPS 10bit 422 ProRES:
     ```
