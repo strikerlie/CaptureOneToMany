@@ -308,6 +308,9 @@ Not Support:
 
 * At the beginning, I tried to read the CaptureOne SDK manual(for both Windows and macOS. Yes! they are different!). But seems there is not providing enough API to to image adjustment. So I use AppleScript which provide more posibility for image adjustment. But it is macOS only. Sorry Windows user....
 
+### Why the name so stupid?
+
+* I just merge CaptureOne and One to Many(Database relationship jargon words). Yes..It is stupid......
 
 ### Why it sucks!
 
