@@ -324,8 +324,10 @@ Not Support:
 
 ## TODO
 ---
-Hopefully Deflicker
-Performance Tuning
+
+* Hopefully Deflicker
+
+* Performance Tuning
 
 ## Sample output
 ---
