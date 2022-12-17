@@ -134,7 +134,9 @@ on RampingLayerAdjustment(startIndex, endIndex)
 			set (level target shadow rgb of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get level target shadow rgb of adjustments of startLayer, get level target shadow rgb of adjustments of endLayer)
 			set (luma curve of adjustments of targetLayers) to get luma curve of adjustments of startLayer
 			set (moire amount of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get moire amount of adjustments of startLayer, get moire amount of adjustments of endLayer)
-			set (moire pattern of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get moire pattern of adjustments of startLayer, get moire pattern of adjustments of endLayer)
+			try
+				set (moire pattern of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get moire pattern of adjustments of startLayer, get moire pattern of adjustments of endLayer) --missing value is 4....				
+			end try
 			--set (noise reduction color of adjustments of targetLayers) to get noise reduction color of adjustments of sourceLayers
 			set (noise reduction details of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get noise reduction details of adjustments of startLayer, get noise reduction details of adjustments of endLayer)
 			set (noise reduction luminance of adjustments of targetLayers) to my RampingFunction(startIndex, endIndex, i, get noise reduction luminance of adjustments of startLayer, get noise reduction luminance of adjustments of endLayer)
