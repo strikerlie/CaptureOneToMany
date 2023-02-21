@@ -30,14 +30,13 @@ Default Path as follow
 
 * CaptureOneToMany-000-Initialize.applescript
     - Initialize all Image in the current Collection
-    - Reset setting other then Base Characteristics and Lens Correction
+    - Reset setting other then Base Characteristics and Lens Correction(Buggy when using custom Lens Correction Profile, Sometime it will cause wrong value in Lens Correction Profile. If you use custom Lens Profile, you may need to use CaptureOneToMany-010-InitializeFirstOnly.applescript)
     - Create "BasicNormalize" Layer for Basic Normalize process
     - Create "KeyFrameAdjustment" Layer for Key Frame Adjustment and Ramping process
-    - ~~(Disabled) Create "DeflickerAdjustment" Layer for Deflicker~~
-    - Safest method to Initialize the Collection, but slow
+    - Create "DeflickerAdjustment" Layer for Deflicker
 * CaptureOneToMany-010-InitializeFirstOnly.applescript
     - Initialize only the Frist Image in the current Collection, you need to copy ALL adjustment/Layer in clipboard and paste to ALL other image in Collection
-    - Copy process faster then CaptureOneToMany-000-Initialize.applescript, But you need to be care what you are doing
+    - Copy process faster then CaptureOneToMany-000-Initialize.applescript. Also a workaround for Custom Lens Profile bug. But you need to be care what you are doing
 * CaptureOneToMany-100-BasicNormize.applescript
     - Adjust Exposure value by CaptureOne's Exposure Evaluation value
     - You may not need it if your Exposure is very stable
@@ -52,10 +51,10 @@ Default Path as follow
 * CaptureOneToMany-400-RampingKeyFrame.applescript
     - Ramping all image adjustment between Key Frame
     - Supported adjustment in the table below
-* ~~CaptureOneToMany-500-Defilcker.applescript~~
-    - ~~Calculate Lumance value of each image then calculate average value and adjust the different to match Lightness in "DeflickerAdjustment"~~ 
-* ~~CaptureOneToMany-996-ResetDefilcker.applescript~~
-    - ~~Reset "DeflickerAdjustment" Layer adjustment~~
+* CaptureOneToMany-500-Defilcker.applescript
+    - Calculate Lumance value of each image then calculate average value and adjust the different to match Lightness in "DeflickerAdjustment" 
+* CaptureOneToMany-996-ResetDefilcker.applescript
+    - Reset "DeflickerAdjustment" Layer adjustment
 * CaptureOneToMany-997-ResetDefilckerPoint.applescript
     - Clear Color Reaout points
 * CaptureOneToMany-998-ResetBasicNormalize.applescript
@@ -64,11 +63,14 @@ Default Path as follow
     - Reset All adjustment
 
 ### Suggested Workflow
-1. Edit **Base Characteristics** and **Lens Correction** at the *first* image in the collection
+1. Edit **Base Characteristics** at the *first* image in the collection
     - If you use [ColorChecker](https://calibrite.com/us/product-category/capture-solutions/), please apple the ICC profile to the first image at this point
-1. Run CaptureOneToMany-000-Initialize.applescript or CaptureOneToMany-010-InitializeFirstOnly.applescript
-    - For Performance, use InitializeFirstOnly and copy the adjustment to all other image. You can try Initialize first and see how it works.
+1. Run CaptureOneToMany-010-InitializeFirstOnly.applescript
+    - It will create Layer for later use.
+1. Edit **Lens Correction** at the *first* image in the collection
+    - There has a bug causing wrong value in Lens Correction Profile when using custom Lens Correction Profile(Maybe Capture One Bug, seems it happen on 16.0.2).
 1. If you want to apply [LCC](https://support.captureone.com/hc/en-us/articles/360002583678-The-LCC-tool) to the image. You can create the LCC in another collection and copy the LCC adjustment to the current collection images now.
+1. Copy Adjustments of the *first* image in the collection, select **ALL Adjustments** in Adjustments Clipboard and paste to other images
 1. If you find that your iamge exposure is not consistent. You may try to apply CaptureOneToMany-100-BasicNormize.applescript.
     - It do not help defilcker!
     - It can be reset by CaptureOneToMany-998-ResetBasicNormalize.applescript
@@ -76,6 +78,14 @@ Default Path as follow
 1. Edit the Key Frame **in "KeyFrameAdjustment" Layer** and run CaptureOneToMany-300-SyncKeyFrame.applescript. Then the Script will help you sync the selected Key Frame "KeyFrameAdjustment" Layer adjustment to other Key Frame
 1. Run CaptureOneToMany-400-RampingKeyFrame.applescript to automatic calculate and set the ramping value of in between frame 
     - For safe, The first and last image will be Key Frame even you did not mark it as Key Frame.
+1. Add Color Readout to the image
+    - Capture One limit only can create 20 readout point
+    - Better find some point which lightness/luminance keep constance, eg: wall, sky, etc.
+1. Run CaptureOneToMany-500-Defilcker.applescript
+    - It will base on the Color Readout point calculate average lightness/luminance value in each image
+    - Current config will use before and after 10 images(total 21 iamges) to calculate average lightness/luminance value 2 times a.k.a. 2-pass
+    - Then best afford to match Exposure value in DeflickerAdjustment Layer
+    - Adjustment in DeflickerAdjustment Layer can be reset by CaptureOneToMany-996-ResetDefilcker.applescript
 1. Export low resolution JPEG image to preview result
     - Long Edge 640~1024px is a ok value
     - You can Merge it by FFmpeg
@@ -84,7 +94,6 @@ Default Path as follow
     - Reminder: It will **DELETE ALL LAYER** and **RESET ALL** config for **ALL IMAGE** in current collection
 1. Export ALL image in Full size JPEG into a new folder
     - Easier for merging it to Video
-1. If needed, you can use 3rd party Deflicker tools 
 1. Merge the Full size JPEG to video
 
 ## Supported List
@@ -260,10 +269,6 @@ Not Support:
 * Layer Mask Ramping
     - Due to missing API for get/draw gradient layer mask
 
-* Deflicker
-    - I already created a Script for Deficker, but due to Color Readout bug in CaptureOne(or maybe my coding issue?) , need to wait CaptureOne fix.
-    - You can try CaptureOneToMany-500-Defilcker.applescript, but color readout value is not match the image.
-
 * Adjustment not edit in Layer
     - My fault, I still thinking Pros&Cons. Should I do it?
 
@@ -277,10 +282,6 @@ Not Support:
 
 ## Workaround
 ---
-### Deflicker
-* Use 3rd party tools to deflicker
-    - [timelapse-deflicker.pl Script](https://github.com/cyberang3l/timelapse-deflicker)
-        - On macOS, easiest way is install it in [Ubuntu Multipass](https://multipass.run/)
 ### Render Video
 * Use [FFmpeg](https://ffmpeg.org/)
     
@@ -325,7 +326,7 @@ Not Support:
 ## TODO
 ---
 
-* Hopefully Deflicker
+* ~~Hopefully Deflicker~~ Color Readout bug seems fixed in CaptureOne 16.0.2
 
 * Performance Tuning
 
