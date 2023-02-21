@@ -28,8 +28,8 @@ on EndProgressBar()
 end EndProgressBar
 
 on RampingFunction(startIndex, endIndex, currentIndex, startValue, endValue)
-	log "startValue: " & startValue & " is missing?" & (startValue is missing value)
-	log "endValue: " & endValue & " is missing?" & (endValue is missing value)
+	--log "startValue: " & startValue & " is missing?" & (startValue is missing value)
+	--log "endValue: " & endValue & " is missing?" & (endValue is missing value)
 	if startValue is missing value then
 		set startValue to 0.0
 	end if
@@ -37,8 +37,8 @@ on RampingFunction(startIndex, endIndex, currentIndex, startValue, endValue)
 	if endValue is missing value then
 		set endValue to 0.0
 	end if
-	log "startValue: " & startValue & " is missing?" & (startValue is missing value)
-	log "endValue: " & endValue & " is missing?" & (endValue is missing value)
+	--log "startValue: " & startValue & " is missing?" & (startValue is missing value)
+	--log "endValue: " & endValue & " is missing?" & (endValue is missing value)
 	
 	set diff to (endValue - startValue) * ((currentIndex - startIndex) / (endIndex - startIndex))
 	return diff + startValue
@@ -184,7 +184,7 @@ tell application "Capture One 23"
 				if rating of theVariant is not 4 and color tag of theVariant is not 4 and variantCount is not indexCount then exit repeat -- # simulated `continue`
 				
 				set endKey to indexCount
-				log "start: " & startKey & " end: " & endKey
+				--log "start: " & startKey & " end: " & endKey
 				my RampingLayerAdjustment(startKey, endKey)
 				set startKey to indexCount
 			end repeat
