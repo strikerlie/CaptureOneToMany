@@ -45,12 +45,15 @@ on AverageFunction(lightnessList, interval) -- looks average not working as expe
 		set endIndex to GetIndex(itemIndex + interval, itemCount)
 		set sampleCount to endIndex - startIndex + 1
 		set avgValue to 0
-		--	log "Average [" & itemIndex & "]startIndex: " & startIndex & " endIndex:" & endIndex & " sampleCount:" & sampleCount
+		--log "Average [" & itemIndex & "]startIndex: " & startIndex & " endIndex:" & endIndex & " sampleCount:" & sampleCount
 		repeat sampleCount times
+			--	log "   Lightness [" & startIndex & "]:" & (item startIndex of lightnessList)
 			set avgValue to avgValue + (item startIndex of lightnessList)
-			set startIndex to startIndex
+			set startIndex to startIndex + 1
 		end repeat
-		set avgValue to avgValue / (sampleCount + 1)
+		--log "  SUM:" & avgValue
+		set avgValue to avgValue / (sampleCount)
+		--log "  AVG:" & avgValue
 		set end of returnList to avgValue
 		set itemIndex to itemIndex + 1
 	end repeat
@@ -85,20 +88,8 @@ on CalculateLightness()
 				set readoutIndex to readoutIndex + 1
 			end repeat
 			set averageLabL to averageLabL / readoutCount
-			log averageLabL
+			--	log averageLabL
 			set end of lightnessList to get averageLabL
-			--		set hihi to lightness of readout 1 of theVariant
-			--		set test to make readout with properties {horizontal position:1, vertical position:1}
-			--set diu to item 1 of hihi
-			--get black of diu
-			--		set OGC to lightness of test
-			--	repeat with colorPicker in hihi
-			--		log (get red of colorPicker)
-			--		log (get horizontal position of colorPicker)
-			--		log (get Lab L of colorPicker)
-			--	end repeat
-			--set diu to make readout of variants
-			--set end of hihi to make readout --with properties {horizontal position:1, vertical position:1}
 			set indexCount to (indexCount + 1)
 		end repeat
 		my EndProgressBar()
@@ -115,51 +106,44 @@ tell application "Capture One 23"
 	
 	tell current document
 		-- loop all variants to match Exposure with CaptureOne Exposure Evalution
-		set indexCount to 1
 		
 		set variantCount to count of variants
 		
-		
-		--create readout?
-		--	set testing to variant 1
-		--	tell testing
-		--		tell readouts
-		--	make readout with properties {horizontal position:11, vertical position:13}
-		--		end tell
-		--	end tell
-
 		--get average Lightness value from sample point 
 		set originalLightnessList to my CalculateLightness()
 		
 		--average 
 		set averageList to my AverageFunction(originalLightnessList, 10)
 		
-		log originalLightnessList
-		log averageList
+		--log originalLightnessList
+		--log averageList
 		--2 pass?
 		set averageList to my AverageFunction(averageList, 10)
 		
-		log averageList
+		--log averageList
 		--Update exposure
 		my InitProgressBar(count of variants, "Processing Deflicker Adjustment...")
 		
+		set indexCount to 1
 		repeat variantCount times
 			my UpdateProgressBar(indexCount)
-			
 			set different to (item indexCount of averageList) - (item indexCount of originalLightnessList)
+			set differentRatio to different / (item indexCount of originalLightnessList)
+			--log "index[" & indexCount & "] Original=" & (item indexCount of originalLightnessList) & "Target=" & (item indexCount of averageList) & " different=" & different & " different/Original=" & differentRatio
+			
 			set targetLayers to layer "DeflickerAdjustment" of variant [indexCount]
 			set oldValue to exposure of adjustments of targetLayers
 			if oldValue is missing value then
 				set oldValue to 0
 			end if
-			set (exposure of adjustments of targetLayers) to oldValue + (different / 20)
+			set (exposure of adjustments of targetLayers) to oldValue + differentRatio
 			set indexCount to indexCount + 1
 		end repeat
 		
 		my EndProgressBar()
 		
-		log originalLightnessList
-		log averageList
+		--log originalLightnessList
+		--log averageList
 	end tell
 	
 end tell

@@ -94,10 +94,10 @@ Then will copy " & (name of baseSource) & "'s Base Characteristics, Len Correcti
 				tell keyFrameAdjustment
 					fill mask
 				end tell
-				--		set deflickerAdjustment to make new layer with properties {name:"DeflickerAdjustment", kind:adjustment, opacity:100} at end
-				--		tell deflickerAdjustment
-				--			fill mask
-				--		end tell
+						set deflickerAdjustment to make new layer with properties {name:"DeflickerAdjustment", kind:adjustment, opacity:100} at end
+						tell deflickerAdjustment
+							fill mask
+						end tell
 			end tell
 			
 		end tell

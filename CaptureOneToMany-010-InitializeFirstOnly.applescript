@@ -92,10 +92,10 @@ You need to manually copy ADJUSTMENT and select all field at Adjustments Clipboa
 				tell keyFrameAdjustment
 					fill mask
 				end tell
-				--		set deflickerAdjustment to make new layer with properties {name:"DeflickerAdjustment", kind:adjustment, opacity:100} at end
-				--		tell deflickerAdjustment
-				--			fill mask
-				--		end tell
+				set deflickerAdjustment to make new layer with properties {name:"DeflickerAdjustment", kind:adjustment, opacity:100} at end
+				tell deflickerAdjustment
+					fill mask
+				end tell
 			end tell
 			
 		end tell
