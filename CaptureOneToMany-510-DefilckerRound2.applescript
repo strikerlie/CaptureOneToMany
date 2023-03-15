@@ -19,7 +19,7 @@ end UpdateProgressBar
 on EndProgressBar()
 	tell application "Capture One 23"
 		--https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html
-		display notification "Ramping KeyFrame DONE!" with title "CaptureOne->Many" sound name "default"
+		display notification "Deflicker DONE!" with title "CaptureOne->Many" sound name "default"
 		set progress total units to 0
 		set progress completed units to 0
 		set progress text to ""
@@ -100,10 +100,7 @@ end CalculateLightness
 
 
 
-tell application "Capture One 23"
-	--set duck to current document
-	--readout 1 of variant "_DSC7019" of duck
-	
+tell application "Capture One 23"	
 	tell current document
 		-- loop all variants to match Exposure with CaptureOne Exposure Evalution
 		
@@ -122,7 +119,7 @@ tell application "Capture One 23"
 		
 		--log averageList
 		--Update exposure
-		my InitProgressBar(count of variants, "Processing Deflicker Adjustment...")
+		my InitProgressBar(count of variants, "Processing Deflicker Round2 Adjustment...")
 		
 		set indexCount to 1
 		repeat variantCount times
