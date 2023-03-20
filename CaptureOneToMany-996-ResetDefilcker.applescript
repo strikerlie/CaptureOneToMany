@@ -29,10 +29,18 @@ end EndProgressBar
 
 
 tell application "Capture One 23"
-	--set duck to current document
-	--readout 1 of variant "_DSC7019" of duck
-	
 	tell current document
+		--https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayDialogsandAlerts.html
+		set theDialogText to "Reset Deflicker Adjustment will reset " & (count of variants) & " Photo's DeflickerAdjustment Layer in current collection(" & name of current collection & ")!"
+		try
+			display dialog theDialogText with icon caution buttons {"STOP!", "Reset"} default button "Reset" cancel button "STOP!"
+		on error errText number errNum
+			--https://stackoverflow.com/questions/15170180/how-can-i-handle-applescript-dialog-response
+			if errNum is -128 then -- or you can say: if errNum is -128
+				return
+			end if
+		end try
+		
 		set indexCount to 1
 		
 		set variantCount to count of variants
