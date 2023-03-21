@@ -78,15 +78,19 @@ on CalculateLightness()
 			my UpdateProgressBar(indexCount)
 			set averageLabL to 0
 			set readoutIndex to 1
-			repeat readoutCount times
-				if rgbMode then
+			if rgbMode then
+				repeat readoutCount times
 					set thisLightness to get lightness of readout readoutIndex of theVariant
-				else
+					set averageLabL to averageLabL + thisLightness
+					set readoutIndex to readoutIndex + 1
+				end repeat
+			else
+				repeat readoutCount times
 					set thisLightness to get Lab L of readout readoutIndex of theVariant
-				end if
-				set averageLabL to averageLabL + thisLightness
-				set readoutIndex to readoutIndex + 1
-			end repeat
+					set averageLabL to averageLabL + thisLightness
+					set readoutIndex to readoutIndex + 1
+				end repeat
+			end if
 			set averageLabL to averageLabL / readoutCount
 			--	log averageLabL
 			set end of lightnessList to get averageLabL
