@@ -28,15 +28,14 @@ Default Path as follow
 ---
 ### Script usage
 
-* CaptureOneToMany-000-Initialize.applescript
-    - Initialize all Image in the current Collection
-    - Reset setting other then Base Characteristics and Lens Correction(Buggy when using custom Lens Correction Profile, Sometime it will cause wrong value in Lens Correction Profile. If you use custom Lens Profile, you may need to use CaptureOneToMany-010-InitializeFirstOnly.applescript)
+* CaptureOneToMany-000-InitializeFirst.applescript
+    - Initialize the Frist Image in the current Collection
+    - Reset setting other then Base Characteristics and Lens Correction
+        - Buggy when using custom Lens Correction Profile, Sometime it will cause wrong value in Lens Correction Profile. If you use custom Lens Profile, you may need to do it after run this script
     - Create "BasicNormalize" Layer for Basic Normalize process
     - Create "KeyFrameAdjustment" Layer for Key Frame Adjustment and Ramping process
-    - Create "DeflickerAdjustment" Layer for Deflicker
-* CaptureOneToMany-010-InitializeFirstOnly.applescript
-    - Initialize only the Frist Image in the current Collection, you need to copy ALL adjustment/Layer in clipboard and paste to ALL other image in Collection
-    - Copy process faster then CaptureOneToMany-000-Initialize.applescript. Also a workaround for Custom Lens Profile bug. But you need to be care what you are doing
+    - Create "DeflickerAdjustment" and "DeflickerAdjustment2" Layer for Deflicker
+    - You need to manually Copy ALL adjustment/Layer in clipboard and paste to ALL other image in Collection
 * CaptureOneToMany-100-BasicNormize.applescript
     - Adjust Exposure value by CaptureOne's Exposure Evaluation value
     - You may not need it if your Exposure is very stable
@@ -44,7 +43,7 @@ Default Path as follow
 * CaptureOneToMany-200-SetKeyFrame.applescript
     - Set Ranking 4 star(HotKey 4) and Green Color Tag(HotKey +) to the selected image
     - The following Script check Ranking 4+Green Color Tag as reference
-    - Just a fail-save design to set 2 differnt marking(you may hit 4/+ key accidentally)
+    - Just a fault-save design to set 2 differnt marking(you may hit 4/+ key accidentally)
 * CaptureOneToMany-300-SyncKeyFrame.applescript
     - Copy Key Frame adjustment to selected Key Frame
     - Supported adjustment in the table below
@@ -53,6 +52,10 @@ Default Path as follow
     - Supported adjustment in the table below
 * CaptureOneToMany-500-Defilcker.applescript
     - Calculate Lumance value of each image then calculate average value and adjust the different to match Lightness in "DeflickerAdjustment" 
+* CaptureOneToMany-510-DefilckerRound2.applescript
+    - Do the same thing as CaptureOneToMany-500-Defilcker.applescript but work on "DeflickerAdjustment2" Layer
+* CaptureOneToMany-995-ResetDefilckerRound2.applescript
+    - Reset "DeflickerAdjustment2" Layer adjustment
 * CaptureOneToMany-996-ResetDefilcker.applescript
     - Reset "DeflickerAdjustment" Layer adjustment
 * CaptureOneToMany-997-ResetDefilckerPoint.applescript
@@ -62,13 +65,24 @@ Default Path as follow
 * CaptureOneToMany-999-FullReset.applescript
     - Reset All adjustment
 
+### Before you start/Common issue
+1. Add back **Base Characteristics** tool in tool tab
+    - At Tool Tab right click "Add Tool"->"Base Characteristic"
+1. Set **Preview Image Size** as low as possible
+    - At "Settings..."->"Image"->"Cache"->"Preview Image Size (px)"
+    - It will generate preview after each edit(but it may not work). If it is tool high, it takes a lots of time to generate preview.
+    - 640px is lowest value
+1. Run **Regenerate Previews** after each script
+    - Color readout is base on Preview, but it may not update correctly after script batch processing. (I got a bug on CaptureOne 16.0, it cause generate preview error and color readout is not correctly at all. It seems fixed on 16.0.2 and 16.1)
+    - 
 ### Suggested Workflow
+1. Run CaptureOneToMany-000-InitializeFirst.applescript
+    - It will create Layer at First image in current Session for later use.
 1. Edit **Base Characteristics** at the *first* image in the collection
+    - **CAUTION!** Please remember don't set Base Characteristics Curve as Auto. It will cause problem in batch processing.
     - If you use [ColorChecker](https://calibrite.com/us/product-category/capture-solutions/), please apple the ICC profile to the first image at this point
-1. Run CaptureOneToMany-010-InitializeFirstOnly.applescript
-    - It will create Layer for later use.
 1. Edit **Lens Correction** at the *first* image in the collection
-    - There has a bug causing wrong value in Lens Correction Profile when using custom Lens Correction Profile(Maybe Capture One Bug, seems it happen on 16.0.2).
+  
 1. If you want to apply [LCC](https://support.captureone.com/hc/en-us/articles/360002583678-The-LCC-tool) to the image. You can create the LCC in another collection and copy the LCC adjustment to the current collection images now.
 1. Copy Adjustments of the *first* image in the collection, select **ALL Adjustments** in Adjustments Clipboard and paste to other images
 1. If you find that your iamge exposure is not consistent. You may try to apply CaptureOneToMany-100-BasicNormize.applescript.
@@ -78,19 +92,22 @@ Default Path as follow
 1. Edit the Key Frame **in "KeyFrameAdjustment" Layer** and run CaptureOneToMany-300-SyncKeyFrame.applescript. Then the Script will help you sync the selected Key Frame "KeyFrameAdjustment" Layer adjustment to other Key Frame
 1. Run CaptureOneToMany-400-RampingKeyFrame.applescript to automatic calculate and set the ramping value of in between frame 
     - For safe, The first and last image will be Key Frame even you did not mark it as Key Frame.
-1. Add Color Readout to the image
+1. Export low resolution JPEG image to preview result
+    - Long Edge 640~1024px is a ok value
+    - You can Merge it by FFmpeg
+1. If not ok, repeat Step 7-9 until you feel good
+1. Add Color Readout to the image for defilcker
     - Capture One limit only can create 20 readout point
     - Better find some point which lightness/luminance keep constance, eg: wall, sky, etc.
 1. Run CaptureOneToMany-500-Defilcker.applescript
     - It will base on the Color Readout point calculate average lightness/luminance value in each image
     - Current config will use before and after 10 images(total 21 iamges) to calculate average lightness/luminance value 2 times a.k.a. 2-pass
-    - Then best afford to match Exposure value in DeflickerAdjustment Layer
+    - Best afford to match Exposure value in DeflickerAdjustment Layer
     - Adjustment in DeflickerAdjustment Layer can be reset by CaptureOneToMany-996-ResetDefilcker.applescript
-1. Export low resolution JPEG image to preview result
-    - Long Edge 640~1024px is a ok value
-    - You can Merge it by FFmpeg
-1. If not ok, repeat Step 5-7 until you feel good
-1. It you want to Redo it again, you can run CaptureOneToMany-999-FullReset.applescript
+1. Run CaptureOneToMany-510-DefilckerRound2.applescript
+    - Just another round deflicker to make it more smooth
+    - Adjustment in DeflickerAdjustment2 Layer can be reset by CaptureOneToMany-995-ResetDefilckerRound2.applescript.applescript
+1. It you want to reset all, you can run CaptureOneToMany-999-FullReset.applescript
     - Reminder: It will **DELETE ALL LAYER** and **RESET ALL** config for **ALL IMAGE** in current collection
 1. Export ALL image in Full size JPEG into a new folder
     - Easier for merging it to Video
@@ -325,15 +342,11 @@ Not Support:
 
 ## TODO
 ---
-
-* ~~Hopefully Deflicker~~ Color Readout bug seems fixed in CaptureOne 16.0.2
-
 * Performance Tuning
-
+* Configable value for Deflicker
 ## Sample output
 ---
 
-No Deflicker applied
 
 https://www.youtube.com/watch?v=4pRYa8XXAY8&list=PLm7v1afnWYa1bYEz3khi_E2JbU2dT6EiR
 
