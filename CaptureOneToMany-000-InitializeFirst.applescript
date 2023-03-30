@@ -96,6 +96,11 @@ You need to manually copy ADJUSTMENT and select all field at Adjustments Clipboa
 				tell deflickerAdjustment
 					fill mask
 				end tell
+				set deflickerAdjustment2 to make new layer with properties {name:"DeflickerAdjustment2", kind:adjustment, opacity:100} at end
+				tell deflickerAdjustment2
+					fill mask
+				end tell
+				
 			end tell
 			
 		end tell

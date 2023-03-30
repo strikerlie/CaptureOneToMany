@@ -4,7 +4,7 @@ on InitProgressBar(total)
 	tell application "Capture One 23"
 		set progress total units to total
 		set progress completed units to 0
-		set progress text to "Resetting Deflicker Adjustment..."
+		set progress text to "Resetting Deflicker Round2 Adjustment..."
 		set progress additional text to "Progress: 0 of " & total & " processed"
 	end tell
 end InitProgressBar
@@ -31,7 +31,7 @@ end EndProgressBar
 tell application "Capture One 23"
 	tell current document
 		--https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayDialogsandAlerts.html
-		set theDialogText to "Reset Deflicker Adjustment will reset " & (count of variants) & " Photo's DeflickerAdjustment Layer in current collection(" & name of current collection & ")!"
+		set theDialogText to "Reset Deflicker Round2 Adjustment will reset " & (count of variants) & " Photo's DeflickerAdjustment2 Layer in current collection(" & name of current collection & ")!"
 		try
 			display dialog theDialogText with icon caution buttons {"STOP!", "Reset"} default button "Reset" cancel button "STOP!"
 		on error errText number errNum
@@ -45,11 +45,11 @@ tell application "Capture One 23"
 		
 		set variantCount to count of variants
 		
-		my InitProgressBar(variantCount, "Processing Deflicker Adjustment...")
+		my InitProgressBar(variantCount, "Processing Deflicker Layer2 Adjustment...")
 		
 		repeat variantCount times
 			my UpdateProgressBar(indexCount)
-			set targetLayers to layer "DeflickerAdjustment" of variant [indexCount]
+			set targetLayers to layer "DeflickerAdjustment2" of variant [indexCount]
 			set (exposure of adjustments of targetLayers) to 0
 			set indexCount to indexCount + 1
 		end repeat

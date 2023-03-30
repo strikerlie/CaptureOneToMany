@@ -105,7 +105,6 @@ end CalculateLightness
 
 
 tell application "Capture One 23"
-	
 	tell current document
 		-- loop all variants to match Exposure with CaptureOne Exposure Evalution
 		
@@ -124,7 +123,7 @@ tell application "Capture One 23"
 		
 		--log averageList
 		--Update exposure
-		my InitProgressBar(count of variants, "Processing Deflicker Adjustment...")
+		my InitProgressBar(count of variants, "Processing Deflicker Round2 Adjustment...")
 		
 		set indexCount to 1
 		repeat variantCount times
@@ -133,7 +132,7 @@ tell application "Capture One 23"
 			set differentRatio to different / (item indexCount of originalLightnessList)
 			--log "index[" & indexCount & "] Original=" & (item indexCount of originalLightnessList) & "Target=" & (item indexCount of averageList) & " different=" & different & " different/Original=" & differentRatio
 			
-			set targetLayers to layer "DeflickerAdjustment" of variant [indexCount]
+			set targetLayers to layer "DeflickerAdjustment2" of variant [indexCount]
 			set oldValue to exposure of adjustments of targetLayers
 			if oldValue is missing value then
 				set oldValue to 0
