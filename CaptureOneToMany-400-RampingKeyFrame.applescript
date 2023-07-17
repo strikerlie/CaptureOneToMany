@@ -169,32 +169,28 @@ on RampingLayerAdjustment(startIndex, endIndex)
 end RampingLayerAdjustment
 
 tell application "Capture One 23"
-	tell current document
+	my InitProgressBar(count of variants)
+	-- loop all variants to match Exposure with CaptureOne Exposure Evalution
+	set indexCount to 1
+	set startKey to 1
+	set endKey to 1
+	set variantCount to count of variants
+	my InitProgressBar(variantCount)
+	repeat with theVariant in variants
 		
-		my InitProgressBar(count of variants)
-		-- loop all variants to match Exposure with CaptureOne Exposure Evalution
-		set indexCount to 1
-		set startKey to 1
-		set endKey to 1
-		set variantCount to count of variants
-		my InitProgressBar(variantCount)
-		repeat with theVariant in variants
+		--https://stackoverflow.com/questions/1024643/applescript-equivalent-of-continue
+		repeat 1 times -- # fake loop
 			
-			--https://stackoverflow.com/questions/1024643/applescript-equivalent-of-continue
-			repeat 1 times -- # fake loop
-				
-				if indexCount = startKey then exit repeat -- # simulated `continue`
-				if rating of theVariant is not 4 and color tag of theVariant is not 4 and variantCount is not indexCount then exit repeat -- # simulated `continue`
-				
-				set endKey to indexCount
-				--log "start: " & startKey & " end: " & endKey
-				my RampingLayerAdjustment(startKey, endKey)
-				set startKey to indexCount
-			end repeat
+			if indexCount = startKey then exit repeat -- # simulated `continue`
+			if rating of theVariant is not 4 and color tag of theVariant is not 4 and variantCount is not indexCount then exit repeat -- # simulated `continue`
 			
-			set indexCount to (indexCount + 1)
+			set endKey to indexCount
+			--log "start: " & startKey & " end: " & endKey
+			my RampingLayerAdjustment(startKey, endKey)
+			set startKey to indexCount
 		end repeat
-		my EndProgressBar()
-	end tell
-	
+		
+		set indexCount to (indexCount + 1)
+	end repeat
+	my EndProgressBar()
 end tell
