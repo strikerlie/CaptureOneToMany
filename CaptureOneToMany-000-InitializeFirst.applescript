@@ -100,9 +100,9 @@ You need to manually copy ADJUSTMENT and select all field at Adjustments Clipboa
 				tell deflickerAdjustment2
 					fill mask
 				end tell
-				
 			end tell
-			
+			--Reference https://support.captureone.com/hc/en-us/community/posts/7116665276701-Select-Background-Layer-all-variants-
+			set current layer to keyFrameAdjustment
 		end tell
 	end tell
 end tell

@@ -7,6 +7,8 @@ on SetKeyFrame(selectedVariants)
 			tell currentVariant
 				set color tag to 4
 				set rating to 4
+				--Reference https://support.captureone.com/hc/en-us/community/posts/7116665276701-Select-Background-Layer-all-variants-
+				set current layer to layer "KeyFrameAdjustment"
 			end tell
 		end repeat
 	end tell
