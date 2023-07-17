@@ -41,213 +41,215 @@ on CopyLayerAdjustment(source, target)
 			display alert "Looks missing KeyFrameAdjustment layer on " & name of target & "! Better to check before Continue" as critical buttons {"Stop", "Continue"} default button "Stop" cancel button "Stop"
 		end try
 		
+		set srcLayerAdj to adjustments of sourceLayers
+		set targetLayersAdj to adjustments of targetLayers
 		
 		--copy (get blue curve of adjustments of source) to blue curve of adjustments of target
 		--copy 1 to clarity amount of adjustments of target
 		
-		--	set (black and white of adjustments of targetLayers) to get black and white of adjustments of sourceLayers
-		--	set (black and white blue sensitivity of adjustments of targetLayers) to get black and white blue sensitivity of adjustments of sourceLayers
-		--	set (black and white cyan sensitivity of adjustments of targetLayers) to get black and white cyan sensitivity of adjustments of sourceLayers
-		--	set (black and white green sensitivity of adjustments of targetLayers) to get black and white green sensitivity of adjustments of sourceLayers
-		--	set (black and white magenta sensitivity of adjustments of targetLayers) to get black and white magenta sensitivity of adjustments of sourceLayers
-		--	set (black and white red sensitivity of adjustments of targetLayers) to get black and white red sensitivity of adjustments of sourceLayers
-		--	set (black and white split highlight hue of adjustments of targetLayers) to get black and white split highlight hue of adjustments of sourceLayers
-		--	set (black and white split highlight saturation of adjustments of targetLayers) to get black and white split highlight saturation of adjustments of sourceLayers
-		--	set (black and white split shadow hue of adjustments of targetLayers) to get black and white split shadow hue of adjustments of sourceLayers
-		--	set (black and white split shadow saturation of adjustments of targetLayers) to get black and white split shadow saturation of adjustments of sourceLayers
-		--	set (black and white yellow sensitivity of adjustments of targetLayers) to get black and white yellow sensitivity of adjustments of sourceLayers
+		--	set (black and white of targetLayersAdj) to get black and white of srcLayerAdj
+		--	set (black and white blue sensitivity of targetLayersAdj) to get black and white blue sensitivity of srcLayerAdj
+		--	set (black and white cyan sensitivity of targetLayersAdj) to get black and white cyan sensitivity of srcLayerAdj
+		--	set (black and white green sensitivity of targetLayersAdj) to get black and white green sensitivity of srcLayerAdj
+		--	set (black and white magenta sensitivity of targetLayersAdj) to get black and white magenta sensitivity of srcLayerAdj
+		--	set (black and white red sensitivity of targetLayersAdj) to get black and white red sensitivity of srcLayerAdj
+		--	set (black and white split highlight hue of targetLayersAdj) to get black and white split highlight hue of srcLayerAdj
+		--	set (black and white split highlight saturation of targetLayersAdj) to get black and white split highlight saturation of srcLayerAdj
+		--	set (black and white split shadow hue of targetLayersAdj) to get black and white split shadow hue of srcLayerAdj
+		--	set (black and white split shadow saturation of targetLayersAdj) to get black and white split shadow saturation of srcLayerAdj
+		--	set (black and white yellow sensitivity of targetLayersAdj) to get black and white yellow sensitivity of srcLayerAdj
 		try
-			set (black recovery of adjustments of targetLayers) to get black recovery of adjustments of sourceLayers
+			set (black recovery of targetLayersAdj) to get black recovery of srcLayerAdj
 		end try
 		try
-			set (blue curve of adjustments of targetLayers) to get blue curve of adjustments of sourceLayers
+			set (blue curve of targetLayersAdj) to get blue curve of srcLayerAdj
 		end try
 		try
-			set (brightness of adjustments of targetLayers) to get brightness of adjustments of sourceLayers
+			set (brightness of targetLayersAdj) to get brightness of srcLayerAdj
 		end try
 		try
-			set (clarity amount of adjustments of targetLayers) to get clarity amount of adjustments of sourceLayers
+			set (clarity amount of targetLayersAdj) to get clarity amount of srcLayerAdj
 		end try
 		try
-			set (clarity method of adjustments of targetLayers) to get clarity method of adjustments of sourceLayers
+			set (clarity method of targetLayersAdj) to get clarity method of srcLayerAdj
 		end try
 		try
-			set (clarity structure of adjustments of targetLayers) to get clarity structure of adjustments of sourceLayers
+			set (clarity structure of targetLayersAdj) to get clarity structure of srcLayerAdj
 		end try
 		try
-			set (color balance highlight hue of adjustments of targetLayers) to get color balance highlight hue of adjustments of sourceLayers
+			set (color balance highlight hue of targetLayersAdj) to get color balance highlight hue of srcLayerAdj
 		end try
 		try
-			set (color balance highlight lightness of adjustments of targetLayers) to get color balance highlight lightness of adjustments of sourceLayers
+			set (color balance highlight lightness of targetLayersAdj) to get color balance highlight lightness of srcLayerAdj
 		end try
 		try
-			set (color balance highlight saturation of adjustments of targetLayers) to get color balance highlight saturation of adjustments of sourceLayers
+			set (color balance highlight saturation of targetLayersAdj) to get color balance highlight saturation of srcLayerAdj
 		end try
 		try
-			set (color balance master hue of adjustments of targetLayers) to get color balance master hue of adjustments of sourceLayers
+			set (color balance master hue of targetLayersAdj) to get color balance master hue of srcLayerAdj
 		end try
 		try
-			set (color balance master saturation of adjustments of targetLayers) to get color balance master saturation of adjustments of sourceLayers
+			set (color balance master saturation of targetLayersAdj) to get color balance master saturation of srcLayerAdj
 		end try
 		try
-			set (color balance midtone hue of adjustments of targetLayers) to get color balance midtone hue of adjustments of sourceLayers
+			set (color balance midtone hue of targetLayersAdj) to get color balance midtone hue of srcLayerAdj
 		end try
 		try
-			set (color balance midtone lightness of adjustments of targetLayers) to get color balance midtone lightness of adjustments of sourceLayers
+			set (color balance midtone lightness of targetLayersAdj) to get color balance midtone lightness of srcLayerAdj
 		end try
 		try
-			set (color balance midtone saturation of adjustments of targetLayers) to get color balance midtone saturation of adjustments of sourceLayers
+			set (color balance midtone saturation of targetLayersAdj) to get color balance midtone saturation of srcLayerAdj
 		end try
 		try
-			set (color balance shadow hue of adjustments of targetLayers) to get color balance shadow hue of adjustments of sourceLayers
+			set (color balance shadow hue of targetLayersAdj) to get color balance shadow hue of srcLayerAdj
 		end try
 		try
-			set (color balance shadow lightness of adjustments of targetLayers) to get color balance shadow lightness of adjustments of sourceLayers
+			set (color balance shadow lightness of targetLayersAdj) to get color balance shadow lightness of srcLayerAdj
 		end try
 		try
-			set (color balance shadow saturation of adjustments of targetLayers) to get color balance shadow saturation of adjustments of sourceLayers
+			set (color balance shadow saturation of targetLayersAdj) to get color balance shadow saturation of srcLayerAdj
 		end try
 		try
-			set (color editor settings of adjustments of targetLayers) to get color editor settings of adjustments of sourceLayers
+			set (color editor settings of targetLayersAdj) to get color editor settings of srcLayerAdj
 		end try
-		--	set (color profile of adjustments of targetLayers) to get color profile of adjustments of sourceLayers
+		--	set (color profile of targetLayersAdj) to get color profile of srcLayerAdj
 		try
-			set (contrast of adjustments of targetLayers) to get contrast of adjustments of sourceLayers
-		end try
-		try
-			set (dehaze amount of adjustments of targetLayers) to get dehaze amount of adjustments of sourceLayers
+			set (contrast of targetLayersAdj) to get contrast of srcLayerAdj
 		end try
 		try
-			set (dehaze color of adjustments of targetLayers) to get dehaze color of adjustments of sourceLayers
+			set (dehaze amount of targetLayersAdj) to get dehaze amount of srcLayerAdj
 		end try
 		try
-			set (exposure of adjustments of targetLayers) to get exposure of adjustments of sourceLayers
+			set (dehaze color of targetLayersAdj) to get dehaze color of srcLayerAdj
 		end try
 		try
-			--set (film curve of adjustments of targetLayers) to get film curve of adjustments of sourceLayers
-			--set (film grain granularity of adjustments of targetLayers) to get film grain granularity of adjustments of sourceLayers
-			--set (film grain impact of adjustments of targetLayers) to get film grain impact of adjustments of sourceLayers
-			--set (film grain type of adjustments of targetLayers) to get film grain type of adjustments of sourceLayers
-			--set (flip of adjustments of targetLayers) to get flip of adjustments of sourceLayers
+			set (exposure of targetLayersAdj) to get exposure of srcLayerAdj
 		end try
 		try
-			set (green curve of adjustments of targetLayers) to get green curve of adjustments of sourceLayers
+			--set (film curve of targetLayersAdj) to get film curve of srcLayerAdj
+			--set (film grain granularity of targetLayersAdj) to get film grain granularity of srcLayerAdj
+			--set (film grain impact of targetLayersAdj) to get film grain impact of srcLayerAdj
+			--set (film grain type of targetLayersAdj) to get film grain type of srcLayerAdj
+			--set (flip of targetLayersAdj) to get flip of srcLayerAdj
 		end try
 		try
-			set (highlight adjustment of adjustments of targetLayers) to get highlight adjustment of adjustments of sourceLayers
+			set (green curve of targetLayersAdj) to get green curve of srcLayerAdj
 		end try
 		try
-			set (level highlight blue of adjustments of targetLayers) to get level highlight blue of adjustments of sourceLayers
+			set (highlight adjustment of targetLayersAdj) to get highlight adjustment of srcLayerAdj
 		end try
 		try
-			set (level highlight green of adjustments of targetLayers) to get level highlight green of adjustments of sourceLayers
+			set (level highlight blue of targetLayersAdj) to get level highlight blue of srcLayerAdj
 		end try
 		try
-			set (level highlight red of adjustments of targetLayers) to get level highlight red of adjustments of sourceLayers
+			set (level highlight green of targetLayersAdj) to get level highlight green of srcLayerAdj
 		end try
 		try
-			set (level highlight rgb of adjustments of targetLayers) to get level highlight rgb of adjustments of sourceLayers
+			set (level highlight red of targetLayersAdj) to get level highlight red of srcLayerAdj
 		end try
 		try
-			set (level midtone blue of adjustments of targetLayers) to get level midtone blue of adjustments of sourceLayers
+			set (level highlight rgb of targetLayersAdj) to get level highlight rgb of srcLayerAdj
 		end try
 		try
-			set (level midtone green of adjustments of targetLayers) to get level midtone green of adjustments of sourceLayers
+			set (level midtone blue of targetLayersAdj) to get level midtone blue of srcLayerAdj
 		end try
 		try
-			set (level midtone red of adjustments of targetLayers) to get level midtone red of adjustments of sourceLayers
+			set (level midtone green of targetLayersAdj) to get level midtone green of srcLayerAdj
 		end try
 		try
-			set (level midtone rgb of adjustments of targetLayers) to get level midtone rgb of adjustments of sourceLayers
+			set (level midtone red of targetLayersAdj) to get level midtone red of srcLayerAdj
 		end try
 		try
-			set (level shadow blue of adjustments of targetLayers) to get level shadow blue of adjustments of sourceLayers
+			set (level midtone rgb of targetLayersAdj) to get level midtone rgb of srcLayerAdj
 		end try
 		try
-			set (level shadow green of adjustments of targetLayers) to get level shadow green of adjustments of sourceLayers
+			set (level shadow blue of targetLayersAdj) to get level shadow blue of srcLayerAdj
 		end try
 		try
-			set (level shadow red of adjustments of targetLayers) to get level shadow red of adjustments of sourceLayers
+			set (level shadow green of targetLayersAdj) to get level shadow green of srcLayerAdj
 		end try
 		try
-			set (level shadow rgb of adjustments of targetLayers) to get level shadow rgb of adjustments of sourceLayers
+			set (level shadow red of targetLayersAdj) to get level shadow red of srcLayerAdj
 		end try
 		try
-			set (level target highlight blue of adjustments of targetLayers) to get level target highlight blue of adjustments of sourceLayers
+			set (level shadow rgb of targetLayersAdj) to get level shadow rgb of srcLayerAdj
 		end try
 		try
-			set (level target highlight green of adjustments of targetLayers) to get level target highlight green of adjustments of sourceLayers
+			set (level target highlight blue of targetLayersAdj) to get level target highlight blue of srcLayerAdj
 		end try
 		try
-			set (level target highlight red of adjustments of targetLayers) to get level target highlight red of adjustments of sourceLayers
+			set (level target highlight green of targetLayersAdj) to get level target highlight green of srcLayerAdj
 		end try
 		try
-			set (level target shadow blue of adjustments of targetLayers) to get level target shadow blue of adjustments of sourceLayers
+			set (level target highlight red of targetLayersAdj) to get level target highlight red of srcLayerAdj
 		end try
 		try
-			set (level target shadow green of adjustments of targetLayers) to get level target shadow green of adjustments of sourceLayers
+			set (level target shadow blue of targetLayersAdj) to get level target shadow blue of srcLayerAdj
 		end try
 		try
-			set (level target shadow red of adjustments of targetLayers) to get level target shadow red of adjustments of sourceLayers
+			set (level target shadow green of targetLayersAdj) to get level target shadow green of srcLayerAdj
 		end try
 		try
-			set (level target shadow rgb of adjustments of targetLayers) to get level target shadow rgb of adjustments of sourceLayers
+			set (level target shadow red of targetLayersAdj) to get level target shadow red of srcLayerAdj
 		end try
 		try
-			set (moire amount of adjustments of targetLayers) to get moire amount of adjustments of sourceLayers
+			set (level target shadow rgb of targetLayersAdj) to get level target shadow rgb of srcLayerAdj
 		end try
 		try
-			set (moire pattern of adjustments of targetLayers) to get moire pattern of adjustments of sourceLayers
-		end try
-		--set (noise reduction color of adjustments of targetLayers) to get noise reduction color of adjustments of sourceLayers
-		try
-			set (noise reduction details of adjustments of targetLayers) to get noise reduction details of adjustments of sourceLayers
+			set (moire amount of targetLayersAdj) to get moire amount of srcLayerAdj
 		end try
 		try
-			set (noise reduction luminance of adjustments of targetLayers) to get noise reduction luminance of adjustments of sourceLayers
+			set (moire pattern of targetLayersAdj) to get moire pattern of srcLayerAdj
 		end try
-		--set (noise reduction single pixel of adjustments of targetLayers) to get noise reduction single pixel of adjustments of sourceLayers
+		--set (noise reduction color of targetLayersAdj) to get noise reduction color of srcLayerAdj
+		try
+			set (noise reduction details of targetLayersAdj) to get noise reduction details of srcLayerAdj
+		end try
+		try
+			set (noise reduction luminance of targetLayersAdj) to get noise reduction luminance of srcLayerAdj
+		end try
+		--set (noise reduction single pixel of targetLayersAdj) to get noise reduction single pixel of srcLayerAdj
 		
 		try
-			set (luma curve of adjustments of targetLayers) to get luma curve of adjustments of sourceLayers
-			--set (orientation of adjustments of targetLayers) to get orientation of adjustments of sourceLayers
+			set (luma curve of targetLayersAdj) to get luma curve of srcLayerAdj
+			--set (orientation of targetLayersAdj) to get orientation of srcLayerAdj
 		end try
 		try
-			set (red curve of adjustments of targetLayers) to get red curve of adjustments of sourceLayers
+			set (red curve of targetLayersAdj) to get red curve of srcLayerAdj
 		end try
 		try
-			set (rgb curve of adjustments of targetLayers) to get rgb curve of adjustments of sourceLayers
-			--set (rotation of adjustments of targetLayers) to get rotation of adjustments of sourceLayers
+			set (rgb curve of targetLayersAdj) to get rgb curve of srcLayerAdj
+			--set (rotation of targetLayersAdj) to get rotation of srcLayerAdj
 		end try
 		try
-			set (saturation of adjustments of targetLayers) to get saturation of adjustments of sourceLayers
+			set (saturation of targetLayersAdj) to get saturation of srcLayerAdj
 		end try
 		try
-			set (shadow recovery of adjustments of targetLayers) to get shadow recovery of adjustments of sourceLayers
+			set (shadow recovery of targetLayersAdj) to get shadow recovery of srcLayerAdj
 		end try
 		try
-			set (sharpening amount of adjustments of targetLayers) to get sharpening amount of adjustments of sourceLayers
+			set (sharpening amount of targetLayersAdj) to get sharpening amount of srcLayerAdj
 		end try
 		try
-			set (sharpening halo suppression of adjustments of targetLayers) to get sharpening halo suppression of adjustments of sourceLayers
+			set (sharpening halo suppression of targetLayersAdj) to get sharpening halo suppression of srcLayerAdj
 		end try
 		try
-			set (sharpening radius of adjustments of targetLayers) to get sharpening radius of adjustments of sourceLayers
+			set (sharpening radius of targetLayersAdj) to get sharpening radius of srcLayerAdj
 		end try
 		try
-			set (sharpening threshold of adjustments of targetLayers) to get sharpening threshold of adjustments of sourceLayers
+			set (sharpening threshold of targetLayersAdj) to get sharpening threshold of srcLayerAdj
 		end try
 		try
-			set (temperature of adjustments of targetLayers) to get temperature of adjustments of sourceLayers
+			set (temperature of targetLayersAdj) to get temperature of srcLayerAdj
 		end try
 		try
-			set (tint of adjustments of targetLayers) to get tint of adjustments of sourceLayers
-			--set (vignetting amount of adjustments of targetLayers) to get vignetting amount of adjustments of sourceLayers
-			--set (vignetting method of adjustments of targetLayers) to get vignetting method of adjustments of sourceLayers
-			--set (white balance preset of adjustments of targetLayers) to get white balance preset of adjustments of sourceLayers
+			set (tint of targetLayersAdj) to get tint of srcLayerAdj
+			--set (vignetting amount of targetLayersAdj) to get vignetting amount of srcLayerAdj
+			--set (vignetting method of targetLayersAdj) to get vignetting method of srcLayerAdj
+			--set (white balance preset of targetLayersAdj) to get white balance preset of srcLayerAdj
 		end try
 		try
-			set (white recovery of adjustments of targetLayers) to get white recovery of adjustments of sourceLayers
+			set (white recovery of targetLayersAdj) to get white recovery of srcLayerAdj
 		end try
 	end tell
 end CopyLayerAdjustment
