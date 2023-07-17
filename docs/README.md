@@ -51,7 +51,7 @@ Default Path as follow
     - Ramping all image adjustment between Key Frame
     - Supported adjustment in the table below
 * CaptureOneToMany-500-CreateDefilckerPoint.applescript
-    - Add defautlt Color Readout Point for Deflicker
+    - Add default Color Readout Point for Deflicker
     - User can use set it manually, this is just a good starting point
 * CaptureOneToMany-510-Defilcker.applescript
     - Calculate Lumance value of each image then calculate average value and adjust the different to match Lightness in "DeflickerAdjustment" 
@@ -100,14 +100,15 @@ Default Path as follow
     - You can Merge it by FFmpeg
 1. If not ok, repeat Step 7-9 until you feel good
 1. Add Color Readout to the image for defilcker
+    - You can use CaptureOneToMany-500-CreateDefilckerPoint.applescript to create a baseline deflicker point
     - Capture One limit only can create 20 readout point
     - Better find some point which lightness/luminance keep constance, eg: wall, sky, etc.
-1. Run CaptureOneToMany-500-Defilcker.applescript
+1. Run CaptureOneToMany-510-Defilcker.applescript
     - It will base on the Color Readout point calculate average lightness/luminance value in each image
     - Current config will use before and after 10 images(total 21 iamges) to calculate average lightness/luminance value 2 times a.k.a. 2-pass
     - Best afford to match Exposure value in DeflickerAdjustment Layer
     - Adjustment in DeflickerAdjustment Layer can be reset by CaptureOneToMany-996-ResetDefilcker.applescript
-1. Run CaptureOneToMany-510-DefilckerRound2.applescript
+1. Run CaptureOneToMany-520-DefilckerRound2.applescript
     - Just another round deflicker to make it more smooth
     - Adjustment in DeflickerAdjustment2 Layer can be reset by CaptureOneToMany-995-ResetDefilckerRound2.applescript.applescript
 1. It you want to reset all, you can run CaptureOneToMany-999-FullReset.applescript
