@@ -50,9 +50,12 @@ Default Path as follow
 * CaptureOneToMany-400-RampingKeyFrame.applescript
     - Ramping all image adjustment between Key Frame
     - Supported adjustment in the table below
-* CaptureOneToMany-500-Defilcker.applescript
+* CaptureOneToMany-500-CreateDefilckerPoint.applescript
+    - Add defautlt Color Readout Point for Deflicker
+    - User can use set it manually, this is just a good starting point
+* CaptureOneToMany-510-Defilcker.applescript
     - Calculate Lumance value of each image then calculate average value and adjust the different to match Lightness in "DeflickerAdjustment" 
-* CaptureOneToMany-510-DefilckerRound2.applescript
+* CaptureOneToMany-520-DefilckerRound2.applescript
     - Do the same thing as CaptureOneToMany-500-Defilcker.applescript but work on "DeflickerAdjustment2" Layer
 * CaptureOneToMany-995-ResetDefilckerRound2.applescript
     - Reset "DeflickerAdjustment2" Layer adjustment
